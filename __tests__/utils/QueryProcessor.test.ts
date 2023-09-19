@@ -54,6 +54,15 @@ describe("QueryProcessor", () => {
         expect(response).toBe("4640");
     });
 
+    test('should return sqrt cbrt string', () => {
+        const query = "Which of the following numbers is both a square and a cube: 3670, 1728, 1, 64, 4198, 4176, 1072?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe("1, 64");
+    });
+
+
+
+    
     
 
     

@@ -31,7 +31,29 @@ export default function QueryProcessor(query: string): string {
     let num2 = Number((numbers[1].split("?"))[0]);
 
     return "" + (num1 * num2);
+  } else if (query.includes("Which of the following ") && query.includes(" square and a cube: ")) {
+    let break1 = query.split("Which of the following numbers is both a square and a cube: ");
+    let numbers = break1[1].split(", ");
+    let ans = ""
+
+    for (let i=0; i<numbers.length; i++) {
+      if (i == numbers.length - 1) {
+        let num = Number((numbers[i].split("?"))[0]);
+        if (Number.isInteger(Math.sqrt(num)) && Number.isInteger(Math.cbrt(num))) {
+          ans += num + ", ";
+        }
+
+      } else {
+        let num = Number(numbers[i]);
+        if (Number.isInteger(Math.sqrt(num)) && Number.isInteger(Math.cbrt(num))) {
+          ans += num + ", ";
+        }
+         
+      }
+    }
+
+    return ans.substring(0, ans.length-2);
   }
-  
+
   return "";
 }
