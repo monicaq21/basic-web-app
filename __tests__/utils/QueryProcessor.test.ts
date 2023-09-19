@@ -42,5 +42,19 @@ describe("QueryProcessor", () => {
         expect(response).toBe("92");
     });
 
+    test('should return sum string', () => {
+        const query = "What is 20 plus 74?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe("94");
+    });
+
+    test('should return product string', () => {
+        const query = "What is 58 multiplied by 80?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe("4640");
+    });
+
+    
+
     
 });
