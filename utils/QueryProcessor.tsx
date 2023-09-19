@@ -20,10 +20,18 @@ export default function QueryProcessor(query: string): string {
   } else if (query.includes("What is ") && query.includes(" plus ")) {
     let break1 = query.split("What is ");
     let numbers = break1[1].split(" plus ");
-    let num1 = Number(numbers[0]);
-    let num2 = Number((numbers[1].split("?"))[0]);
 
-    return "" + (num1 + num2);
+    let sum = 0
+    for (let i=0; i<numbers.length; i++) {
+      let num = 0
+      if (i == numbers.length - 1) {
+        num = Number((numbers[i].split("?"))[0]);
+      } else {
+        num = Number(numbers[i]);
+      }
+      sum += num
+    }
+    return "" + sum;
   } else if (query.includes("What is ") && query.includes(" multiplied by ")) {
     let break1 = query.split("What is ");
     let numbers = break1[1].split(" multiplied by ");

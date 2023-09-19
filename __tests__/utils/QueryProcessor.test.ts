@@ -72,6 +72,19 @@ describe("QueryProcessor", () => {
         expect(response).toBe("-4");
     });
 
+    test('should return minus string', () => {
+        const query = "What is 43 minus 75?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe("-32");
+    });
+
+    test('should return sums string', () => {
+        const query = "What is 43 plus 75 plus 19?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe("137");
+    });
+    
+
 
 
     
