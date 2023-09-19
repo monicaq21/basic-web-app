@@ -55,7 +55,7 @@ export default function QueryProcessor(query: string): string {
     // Which of the following numbers are primes: 70, 17, 73, 74, 98?
     if (ans == "") return ""
     return ans.substring(0, ans.length-2);
-    
+
   } else if (query.includes("Which of the following ") && query.includes(" primes: ")) {
     let break1 = query.split("Which of the following numbers are primes: ");
     let numbers = break1[1].split(", ");
@@ -84,11 +84,15 @@ export default function QueryProcessor(query: string): string {
 
     if (ans == "") return ""
     return ans.substring(0, ans.length-2);
+  } else if (query.includes("What is ") && query.includes(" minus ")) {
+    let break1 = query.split("What is ");
+    let numbers = break1[1].split(" minus ");
+    let num1 = Number(numbers[0]);
+    let num2 = Number((numbers[1].split("?"))[0]);
+
+    return "" + (num1 - num2);
   }
 
-
-
-  
 
   return "";
 }
