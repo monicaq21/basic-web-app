@@ -60,6 +60,12 @@ describe("QueryProcessor", () => {
         expect(response).toBe("1, 64");
     });
 
+    test('should return sqrt cbrt string', () => {
+        const query = "Which of the following numbers are primes: 20, 31, 13?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe("31, 13");
+    });
+
 
 
     

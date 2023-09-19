@@ -52,8 +52,44 @@ export default function QueryProcessor(query: string): string {
       }
     }
 
+    // Which of the following numbers are primes: 70, 17, 73, 74, 98?
+    if (ans == "") return ""
+    return ans.substring(0, ans.length-2);
+    
+  } else if (query.includes("Which of the following ") && query.includes(" primes: ")) {
+    let break1 = query.split("Which of the following numbers are primes: ");
+    let numbers = break1[1].split(", ");
+    let ans = ""
+
+    for (let i=0; i<numbers.length; i++) {
+      let num = 0
+      if (i == numbers.length - 1) {
+        num = Number((numbers[i].split("?"))[0]);
+      } else {
+        num = Number(numbers[i]);
+      }
+
+      let isPrime = true;
+      for (let l=2; l<Math.ceil(Math.sqrt(num)); l++) {
+        if (num % l == 0) {
+          isPrime = false
+          break
+        }
+      }
+
+      if (isPrime) {
+        ans += num + ", ";
+      }
+    }
+
+    if (ans == "") return ""
     return ans.substring(0, ans.length-2);
   }
 
+
+
+  
+
   return "";
 }
+
