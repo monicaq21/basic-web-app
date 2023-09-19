@@ -29,4 +29,12 @@ describe("QueryProcessor", () => {
         const response: string = QueryProcessor(query);
         expect(response).toBe("mon");
     });
+
+    test('should return max number string', () => {
+        const query = "Which of the following numbers is the largest: 97, 41, 35?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe("97");
+    });
+
+    
 });
