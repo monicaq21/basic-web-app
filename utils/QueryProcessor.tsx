@@ -78,7 +78,7 @@ export default function QueryProcessor(query: string): string {
       }
 
       let isPrime = true;
-      for (let l=2; l<Math.ceil(Math.sqrt(num)); l++) {
+      for (let l=2; l<=Math.ceil(Math.sqrt(num)); l++) {
         if (num % l == 0) {
           isPrime = false
           break
@@ -99,6 +99,13 @@ export default function QueryProcessor(query: string): string {
     let num2 = Number((numbers[1].split("?"))[0]);
 
     return "" + (num1 - num2);
+  } else if (query.includes("to the power of")) {
+    let break1 = query.split("What is ");
+    let numbers = break1[1].split(" to the power of ");
+    let num1 = Number(numbers[0]);
+    let num2 = Number((numbers[1].split("?"))[0]);
+
+    return "" + (num1 ** num2);
   }
 
 
