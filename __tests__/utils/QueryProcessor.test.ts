@@ -36,5 +36,11 @@ describe("QueryProcessor", () => {
         expect(response).toBe("97");
     });
 
+    test('should return sum string', () => {
+        const query = "What is 66 plus 26?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe("92");
+    });
+
     
 });
